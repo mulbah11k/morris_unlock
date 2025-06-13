@@ -19,7 +19,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'tailwind',
-    'theme',
+    # 'theme',
     'accounts',
     'services',
     'orders',
@@ -45,7 +45,7 @@ MIDDLEWARE = [
 if DEBUG:
     MIDDLEWARE.append("django_browser_reload.middleware.BrowserReloadMiddleware")
 
-TAILWIND_APP_NAME = 'theme'
+# TAILWIND_APP_NAME = 'theme'
 
 ROOT_URLCONF = 'morris_unlocker.urls'
 
@@ -98,6 +98,7 @@ AUTH_USER_MODEL = 'accounts.CustomUser'
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [BASE_DIR / "static"]
 STATIC_ROOT = BASE_DIR / 'staticfiles'
+
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 NPM_BIN_PATH = "/home/mulbahkolleh/.nvm/versions/node/v22.14.0/bin/npm"
