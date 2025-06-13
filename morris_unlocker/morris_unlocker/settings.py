@@ -19,7 +19,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'tailwind',
-    # 'theme',
+'theme',
     'accounts',
     'services',
     'orders',
@@ -45,7 +45,7 @@ MIDDLEWARE = [
 if DEBUG:
     MIDDLEWARE.append("django_browser_reload.middleware.BrowserReloadMiddleware")
 
-# TAILWIND_APP_NAME = 'theme'
+TAILWIND_APP_NAME = 'theme'
 
 ROOT_URLCONF = 'morris_unlocker.urls'
 
