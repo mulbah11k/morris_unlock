@@ -19,12 +19,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'tailwind',
-'theme',
-    'accounts',
-    'services',
-    'orders',
-    'wallet',
-    'adminpanel',
+    'morris_unlocker.theme',
+    'morris_unlocker.accounts',
+    'morris_unlocker.services',
+    'morris_unlocker.orders',
+    'morris_unlocker.wallet',
+    'morris_unlocker.adminpanel',
     'whitenoise.runserver_nostatic',
 ]
 
