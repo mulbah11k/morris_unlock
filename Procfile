@@ -1,4 +1,1 @@
-```Procfile
-web: gunicorn morris_unlocker.wsgi:application
-```
-web: gunicorn morris_unlocker.wsgi:application
+web: gunicorn morris_unlocker.wsgi:application --bind 0.0.0.0:$PORT
