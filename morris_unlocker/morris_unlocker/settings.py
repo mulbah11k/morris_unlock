@@ -19,7 +19,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'tailwind',
-    'morris_unlocker.theme',
+    'theme',
     'accounts',
     'services',
     'orders',
