@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="max-w-4xl mx-auto mt-10 p-6 bg-white shadow rounded-lg">
+  <h1 class="text-2xl font-bold mb-4">Wallet Dashboard</h1>
+  
+  <div class="mb-6">
+    <p class="text-lg">Wallet Balance:</p>
+    <p class="text-3xl font-semibold text-green-600">${{ wallet.balance }}</p>
+  </div>
+
+  <h2 class="text-xl font-bold mt-8 mb-4">Recent Transactions</h2>
+  <div class="overflow-x-auto">
+    <table class="min-w-full text-sm text-left border border-gray-300">
+      <thead class="bg-gray-100 text-gray-700">
+        <tr>
+          <th class="py-2 px-4 border-b">Date</th>
+          <th class="py-2 px-4 border-b">Amount</th>
+          <th class="py-2 px-4 border-b">Type</th>
+          <th class="py-2 px-4 border-b">Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for txn in transactions %}
+        <tr class="border-b">
+          <td class="py-2 px-4">{{ txn.timestamp }}</td>
+          <td class="py-2 px-4">${{ txn.amount }}</td>
+          <td class="py-2 px-4">{{ txn.get_transaction_type_display }}</td>
+          <td class="py-2 px-4">{{ txn.note }}</td>
+        </tr>
+        {% empty %}
+        <tr>
+          <td colspan="4" class="py-4 text-center">No transactions yet.</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}
