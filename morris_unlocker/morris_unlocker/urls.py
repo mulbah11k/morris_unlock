@@ -24,8 +24,8 @@ def home(request):
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('accounts/', include('accounts.urls')),
-    path('wallet/', include('wallet.urls')),
+    path('accounts/', include('morris_unlocker.accounts.urls')),
+    path('wallet/', include('morris_unlocker.wallet.urls')),
     path('__reload__/', include('django_browser_reload.urls')),
     path('', home, name='home'),
 ]
