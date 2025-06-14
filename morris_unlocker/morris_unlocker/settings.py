@@ -47,7 +47,7 @@ if DEBUG:
 
 TAILWIND_APP_NAME = 'theme'
 
-ROOT_URLCONF = 'morris_unlockerm.orris_unlocker.urls'
+ROOT_URLCONF = 'morris_unlocker.morris_unlocker.urls'
 
 TEMPLATES = [
     {
