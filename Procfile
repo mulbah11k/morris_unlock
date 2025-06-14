@@ -1,1 +1,1 @@
-web: gunicorn morris_unlocker.morris_unlocker.wsgi:application --bind 0.0.0.0:$PORT
+web: gunicorn morris_unlocker.wsgi:application
