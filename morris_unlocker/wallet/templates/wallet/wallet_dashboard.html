@@ -1,0 +1,62 @@
+{% extends 'base_user.html' %}
+{% load static %}
+
+{% block content %}
+<div class="p-4 space-y-6">
+
+  <!-- Notification -->
+  <div class="bg-cyan-500 text-white p-4 rounded-md text-sm">
+    Two-Factor Authentication is disabled. Secure your account by enabling two-factor authentication.
+    <button class="bg-white text-cyan-500 px-3 py-1 rounded ml-4 font-bold">Enable</button>
+  </div>
+
+  <!-- Top Row -->
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+    <div class="bg-gray-900 text-white p-6 rounded-md">
+      <p class="text-sm">Your Current Balance</p>
+      <div class="text-3xl font-bold">$0 <span class="text-base">USD</span></div>
+      <button class="bg-indigo-500 text-white px-4 py-2 mt-4 rounded inline-flex items-center">
+        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="..."/></svg>
+        Buy Credit
+      </button>
+    </div>
+
+    <div class="bg-gray-900 text-white p-6 rounded-md">
+      <p class="text-sm">Unpaid Balance</p>
+      <div class="text-3xl font-bold text-red-500">$0 <span class="text-base">USD</span></div>
+    </div>
+
+    <div class="bg-blue-500 text-white p-6 rounded-md flex items-center justify-center">
+      <button class="text-lg font-semibold">Connect Telegram</button>
+    </div>
+  </div>
+
+  <!-- Stats Row -->
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+    <div class="bg-gray-800 text-white p-6 rounded-md text-center">
+      <div class="text-2xl font-bold">$0 <span class="text-base">USD</span></div>
+      <p class="text-sm mt-2">Total Receipts</p>
+    </div>
+
+    <div class="bg-gray-800 text-white p-6 rounded-md text-center">
+      <div class="text-2xl font-bold">$0 <span class="text-base">USD</span></div>
+      <p class="text-sm mt-2">Locked Amount</p>
+      <div class="text-xl mt-2">🔒</div>
+    </div>
+
+    <div class="bg-gray-800 text-white p-6 rounded-md text-center">
+      <div class="grid grid-cols-3 gap-2 text-sm font-semibold">
+        <div class="text-green-400">✔ Success</div>
+        <div class="text-blue-400">⏳ In Process</div>
+        <div class="text-red-400">❌ Failed</div>
+      </div>
+      <div class="grid grid-cols-3 gap-2 mt-2 text-xl font-bold">
+        <div>0</div>
+        <div>0</div>
+        <div>0</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+{% endblock %}

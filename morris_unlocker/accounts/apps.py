@@ -3,4 +3,8 @@ from django.apps import AppConfig
 
 class AccountsConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'morris_unlocker.accounts'
+    name = 'accounts'
+
+def ready(self):
+    import accounts.signals
+
