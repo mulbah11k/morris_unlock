@@ -9,8 +9,8 @@ DEBUG = 'True'
 
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'your-fallback-secret')
 
-ALLOWED_HOSTS = ['.vercel.app', 'localhost']
-# ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = ['.vercel.app', 'localhost']
+ALLOWED_HOSTS = []
 
 
 INSTALLED_APPS = [
@@ -65,8 +65,7 @@ TEMPLATES = [
     },
 ]
 
-# WSGI_APPLICATION = 'morris_unlocker.wsgi.application'
-WSGI_APPLICATION = 'api.wsgi.app'
+WSGI_APPLICATION = 'morris_unlocker.wsgi.application'
 DATABASES = {
     'default': dj_database_url.config(default=f'sqlite:///{BASE_DIR / "db.sqlite3"}')
 }
