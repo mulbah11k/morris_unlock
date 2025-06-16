@@ -9,7 +9,7 @@ DEBUG = 'True'
 
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'your-fallback-secret')
 
-ALLOWED_HOSTS = ['.onrender.com', 'localhost']
+ALLOWED_HOSTS = ['.vercel.app', 'localhost']
 # ALLOWED_HOSTS = []
 
 
@@ -65,8 +65,8 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'morris_unlocker.wsgi.application'
-
+# WSGI_APPLICATION = 'morris_unlocker.wsgi.application'
+WSGI_APPLICATION = 'api.wsgi.app'
 DATABASES = {
     'default': dj_database_url.config(default=f'sqlite:///{BASE_DIR / "db.sqlite3"}')
 }
