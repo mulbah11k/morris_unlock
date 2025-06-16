@@ -3,13 +3,12 @@ import os
 import dj_database_url
 
 BASE_DIR = Path(__file__).resolve().parent.parent
-STATICFILES_DIRS = [BASE_DIR / "static"]
-
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 DEBUG = 'False'
 
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'your-fallback-secret')
 
-ALLOWED_HOSTS = ['.vercel.app', 'localhost']
+ALLOWED_HOSTS = ['railway.com', 'localhost']
 # ALLOWED_HOSTS = []
 
 
@@ -97,7 +96,8 @@ AUTH_USER_MODEL = 'accounts.CustomUser'
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [BASE_DIR / "static"]
-STATIC_ROOT = BASE_DIR / 'staticfiles'
+# STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # For collectstatic
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
