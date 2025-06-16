@@ -5,28 +5,28 @@ import dj_database_url
 BASE_DIR = Path(__file__).resolve().parent.parent
 STATICFILES_DIRS = [BASE_DIR / "static"]
 
-DEBUG = 'True'
+DEBUG = 'False'
 
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'your-fallback-secret')
 
-# ALLOWED_HOSTS = ['.vercel.app', 'localhost']
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['.vercel.app', 'localhost']
+# ALLOWED_HOSTS = []
 
 
 INSTALLED_APPS = [
-    'accounts.apps.AccountsConfig',
-    'services.apps.ServicesConfig',
-    'orders.apps.OrdersConfig',
-    'wallet.apps.WalletConfig',
-    'tailwind',
-    'adminpanel',
-    'whitenoise.runserver_nostatic',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles'
+    'django.contrib.staticfiles',
+    'accounts',
+    'services',
+    'orders',
+    'wallet',
+    'tailwind',
+    'adminpanel',
+    'whitenoise.runserver_nostatic',
 ]
 
 if DEBUG:
