@@ -14,19 +14,19 @@ ALLOWED_HOSTS = ['.onrender.com', 'localhost']
 
 
 INSTALLED_APPS = [
+    'accounts.apps.AccountsConfig',
+    'services.apps.ServicesConfig',
+    'orders.apps.OrdersConfig',
+    'wallet.apps.WalletConfig',
+    'tailwind',
+    'adminpanel',
+    'whitenoise.runserver_nostatic',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'tailwind',
-    'accounts.apps.AccountsConfig',
-    'services.apps.ServicesConfig',
-    'orders.apps.OrdersConfig',
-    'wallet.apps.WalletConfig',
-    'adminpanel',
-    'whitenoise.runserver_nostatic',
+    'django.contrib.staticfiles'
 ]
 
 if DEBUG:
