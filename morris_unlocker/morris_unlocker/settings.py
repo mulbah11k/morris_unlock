@@ -23,6 +23,7 @@ INSTALLED_APPS = [
     'services',
     'orders',
     'wallet',
+    'theme',
     'tailwind',
     'adminpanel',
     'whitenoise.runserver_nostatic',
@@ -42,12 +43,12 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-if DEBUG:
-    MIDDLEWARE.append("django_browser_reload.middleware.BrowserReloadMiddleware")
+# if DEBUG:
+#     MIDDLEWARE.append("django_browser_reload.middleware.BrowserReloadMiddleware")
 
 TAILWIND_APP_NAME = 'theme'
 
-ROOT_URLCONF = 'morris_unlocker.urls'
+ROOT_URLCONF = 'morris_unlocker.morris_unlocker.urls'
 
 TEMPLATES = [
     {

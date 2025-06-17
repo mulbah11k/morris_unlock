@@ -2,61 +2,77 @@
 {% load static %}
 
 {% block content %}
-<div class="p-4 space-y-6">
-
-  <!-- Notification -->
-  <div class="bg-cyan-500 text-white p-4 rounded-md text-sm">
+<div class="p-6 space-y-6">
+  <div class="text-sm bg-cyan-600 text-white px-4 py-2 rounded shadow">
     Two-Factor Authentication is disabled. Secure your account by enabling two-factor authentication.
-    <button class="bg-white text-cyan-500 px-3 py-1 rounded ml-4 font-bold">Enable</button>
+    <button class="float-right bg-white text-cyan-600 px-3 py-1 rounded text-sm font-semibold">Enable</button>
   </div>
 
-  <!-- Top Row -->
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-    <div class="bg-gray-900 text-white p-6 rounded-md">
-      <p class="text-sm">Your Current Balance</p>
-      <div class="text-3xl font-bold">$0 <span class="text-base">USD</span></div>
-      <button class="bg-indigo-500 text-white px-4 py-2 mt-4 rounded inline-flex items-center">
-        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="..."/></svg>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <div class="bg-gray-900 text-white p-6 rounded-lg shadow">
+      <div class="text-xl font-semibold">Your Current Balance</div>
+      <div class="text-3xl font-bold mt-2">$0 <span class="text-sm">USD</span></div>
+      <button class="mt-4 bg-indigo-500 hover:bg-indigo-600 text-white px-4 py-2 rounded flex items-center">
+        <svg class="h-5 w-5 mr-2" fill="currentColor" viewBox="0 0 20 20"><path d="M16 4h2a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-2M4 4H2a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h2m4-4h4m-4-4h4m-4-4h4"/></svg>
         Buy Credit
       </button>
     </div>
 
-    <div class="bg-gray-900 text-white p-6 rounded-md">
-      <p class="text-sm">Unpaid Balance</p>
-      <div class="text-3xl font-bold text-red-500">$0 <span class="text-base">USD</span></div>
+    <div class="bg-gray-900 text-white p-6 rounded-lg shadow">
+      <div class="text-xl font-semibold text-red-400">Unpaid Balance</div>
+      <div class="text-3xl font-bold mt-2 text-red-500">$0 USD</div>
     </div>
 
-    <div class="bg-blue-500 text-white p-6 rounded-md flex items-center justify-center">
-      <button class="text-lg font-semibold">Connect Telegram</button>
-    </div>
-  </div>
-
-  <!-- Stats Row -->
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-    <div class="bg-gray-800 text-white p-6 rounded-md text-center">
-      <div class="text-2xl font-bold">$0 <span class="text-base">USD</span></div>
-      <p class="text-sm mt-2">Total Receipts</p>
-    </div>
-
-    <div class="bg-gray-800 text-white p-6 rounded-md text-center">
-      <div class="text-2xl font-bold">$0 <span class="text-base">USD</span></div>
-      <p class="text-sm mt-2">Locked Amount</p>
-      <div class="text-xl mt-2">🔒</div>
-    </div>
-
-    <div class="bg-gray-800 text-white p-6 rounded-md text-center">
-      <div class="grid grid-cols-3 gap-2 text-sm font-semibold">
-        <div class="text-green-400">✔ Success</div>
-        <div class="text-blue-400">⏳ In Process</div>
-        <div class="text-red-400">❌ Failed</div>
-      </div>
-      <div class="grid grid-cols-3 gap-2 mt-2 text-xl font-bold">
-        <div>0</div>
-        <div>0</div>
-        <div>0</div>
+    <div class="bg-blue-500 text-white p-6 rounded-lg shadow flex items-center justify-center">
+      <div class="text-center">
+        <svg class="mx-auto h-10 w-10" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M1 21l21-9L1 3v7l15 2-15 2z"/>
+        </svg>
+        <div class="mt-2 text-lg font-semibold">Connect Telegram</div>
       </div>
     </div>
   </div>
 
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <div class="bg-gray-900 text-white p-6 rounded-lg shadow text-center">
+      <div class="text-3xl font-bold">$0 <span class="text-sm">USD</span></div>
+      <div class="mt-2 text-lg font-medium">Total Receipts</div>
+      <svg class="mx-auto h-8 w-8 mt-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-6h13v6"/>
+      </svg>
+    </div>
+
+    <div class="bg-gray-900 text-white p-6 rounded-lg shadow text-center">
+      <div class="text-3xl font-bold">$0 <span class="text-sm">USD</span></div>
+      <div class="mt-2 text-lg font-medium">Locked Amount</div>
+      <svg class="mx-auto h-8 w-8 mt-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m0 0v-6a2 2 0 1 1 4 0v6m-4 0a2 2 0 0 1-4 0v-6a2 2 0 1 1 4 0v6"/>
+      </svg>
+    </div>
+
+    <div class="bg-gray-900 text-white p-6 rounded-lg shadow">
+      <div class="text-lg font-semibold mb-2">Announcements</div>
+      <ul class="text-sm space-y-2">
+        <li><span class="font-medium">Tecno/iTel/Infinix Unlock:</span> 5 USD <span class="block text-gray-400">2025-06-14</span></li>
+        <li><span class="font-medium">Dhru Fusion License Renewal:</span> 230 USD <span class="block text-gray-400">2025-06-13</span></li>
+        <li><span class="font-medium">FRP Remove WW By IMEI:</span> 0 USD <span class="block text-gray-400">2025-06-12</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <div class="bg-gray-900 text-white p-6 rounded-lg shadow text-center">
+      <div class="text-2xl font-bold">0 / 0</div>
+      <div class="mt-2 text-green-400">Orders process successfully</div>
+    </div>
+    <div class="bg-gray-900 text-white p-6 rounded-lg shadow text-center">
+      <div class="text-2xl font-bold">0 / 0</div>
+      <div class="mt-2 text-blue-400">Orders in process</div>
+    </div>
+    <div class="bg-gray-900 text-white p-6 rounded-lg shadow text-center">
+      <div class="text-2xl font-bold">0 / 0</div>
+      <div class="mt-2 text-red-400">Orders process fails</div>
+    </div>
+  </div>
 </div>
 {% endblock %}
