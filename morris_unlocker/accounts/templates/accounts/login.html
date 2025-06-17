@@ -1,4 +1,125 @@
 {% extends "base.html" %}
+{% load static %} {# Make sure 'static' is loaded to use {% static %} tags #}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+
+<div class="bg-gray-100 min-h-screen flex items-center justify-center font-sans">
+    <div class="relative w-full max-w-7xl mx-auto flex flex-col md:flex-row shadow-lg rounded-lg overflow-hidden">
+
+        <div class="hidden md:block md:w-1/2 background-image-container">
+            {# The CSS for 'background-image-container' defines the image. This <img> is a fallback/placeholder #}
+            {# Make sure your image 'images/desktop-background.jpg' exists in your static files #}
+            <img src="{% static 'img/phone_unlock.jpg' %}" alt="Floral background" class="w-full h-full object-cover">
+        </div>
+
+        <div class="w-full md:w-1/2 p-8 md:p-12 bg-white flex flex-col justify-center relative z-10">
+
+            <div class="md:hidden absolute inset-0 mobile-image-overlay -z-10">
+                {# The CSS for 'mobile-image-overlay' defines the image and filter. This <img> is a fallback/placeholder #}
+                {# Make sure your image 'images/mobile-background.jpg' exists in your static files #}
+                <img src="{% static 'img/phone_unlock.jpg' %}" alt="Floral background" class="w-full h-full object-cover">
+            </div>
+
+            <div class="relative z-20"> {# This z-20 ensures form content is above mobile overlay #}
+                <h2 class="text-3xl font-semibold mb-2 text-gray-800">Welcome Back 👋</h2>
+                <p class="text-gray-600 mb-8">Today is a new day. You shape it. Sign in to start managing your projects.</p>
+
+                <form method="post" class="space-y-4">
+                    {% csrf_token %}
+
+                    {# Email Field #}
+                    <div class="mb-4">
+                        <label for="{{ form.email.id_for_label }}" class="block text-gray-700 text-sm font-bold mb-2">Email</label>
+                        {{ form.email }} {# Renders the input tag for email, ensure attrs are set in forms.py #}
+                        {% if form.email.errors %}
+                            <p class="text-red-500 text-xs italic mt-1">{{ form.email.errors }}</p>
+                        {% endif %}
+                    </div>
+
+                    {# Password Field #}
+                    <div class="mb-6">
+                        <label for="{{ form.password.id_for_label }}" class="block text-gray-700 text-sm font-bold mb-2">Password</label>
+                        {{ form.password }} {# Renders the input tag for password, ensure attrs are set in forms.py #}
+                        {% if form.password.errors %}
+                            <p class="text-red-500 text-xs italic mt-1">{{ form.password.errors }}</p>
+                        {% endif %}
+                        <a href="#" class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800 float-right mt-2">
+                            Forgot Password?
+                        </a>
+                    </div>
+
+                    {# Login Button #}
+                    <div class="mb-6 clear-both"> {# clear-both to ensure button is not affected by float #}
+                        <button type="submit"
+                                class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded focus:outline-none focus:shadow-outline">
+                            Sign in
+                        </button>
+                    </div>
+
+                    <div class="flex items-center my-6">
+                        <div class="flex-grow border-t border-gray-300"></div>
+                        <span class="flex-shrink mx-4 text-gray-500">Or</span>
+                        <div class="flex-grow border-t border-gray-300"></div>
+                    </div>
+
+                    {# Social Login Buttons #}
+                    <div class="mb-4">
+                        <button type="button"
+                                class="w-full flex items-center justify-center bg-white border border-gray-300 text-gray-700 font-bold py-3 px-4 rounded hover:bg-gray-50 focus:outline-none focus:shadow-outline">
+                            <img src="{% static 'icons/google-logo.png' %}" alt="Google logo" class="w-5 h-5 mr-2">
+                            Sign in with Google
+                        </button>
+                    </div>
+
+                    <div class="mb-6">
+                        <button type="button"
+                                class="w-full flex items-center justify-center bg-white border border-gray-300 text-gray-700 font-bold py-3 px-4 rounded hover:bg-gray-50 focus:outline-none focus:shadow-outline">
+                            <img src="{% static 'icons/facebook-logo.png' %}" alt="Facebook logo" class="w-5 h-5 mr-2">
+                            Sign in with Facebook
+                        </button>
+                    </div>
+                </form>
+
+                <p class="text-center text-gray-600 text-sm mt-8">
+                    Don't you have an account?
+                    <a href="#" class="font-bold text-blue-500 hover:text-blue-800">Sign up</a>
+                </p>
+
+                <p class="text-center text-gray-400 text-xs mt-10">
+                    © 2023 ALL RIGHTS RESERVED
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+{# IMPORTANT: Place this style block in your main compiled CSS file (e.g., style.css)
+   or directly in your base.html <head> section. Do NOT leave it inline here for production.
+   Ensure paths are correct relative to your CSS file. #}
+<style>
+    .background-image-container {
+        background-image: url('{% static "images/desktop-background.jpg" %}'); /* Use your actual image path */
+        background-size: cover;
+        background-position: center;
+    }
+    @media (max-width: 767px) {
+        .mobile-image-overlay {
+            background-image: url('{% static "img/unlock-sim-on-iphone.jpg" %}'); /* Use your actual image path */
+            background-size: cover;
+            background-position: center;
+            filter: brightness(0.6); /* Adjust brightness as seen in the mobile screenshot */
+        }
+    }
+</style>
+{% endblock content %}
+
+
+
+
+
+{% comment %} {% extends "base.html" %}
 {% block title %}Login{% endblock %}
 {% block content %}
 <div class="max-w-md mx-auto bg-white p-6 rounded shadow">
@@ -12,4 +133,6 @@
     <button class="btn btn-primary">Click me</button>
   </form>
 </div>
-{% endblock %}
+{% endblock %} {% endcomment %}
+
+

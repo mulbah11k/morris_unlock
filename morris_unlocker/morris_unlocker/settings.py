@@ -8,7 +8,7 @@ DEBUG = 'False'
 
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'your-fallback-secret')
 
-ALLOWED_HOSTS = ['railway.com', 'localhost']
+ALLOWED_HOSTS = ['railway.com', '127.0.0.1']
 # ALLOWED_HOSTS = []
 
 
