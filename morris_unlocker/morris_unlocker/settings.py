@@ -8,10 +8,12 @@ DEBUG = 'False'
 
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'your-fallback-secret')
 
-ALLOWED_HOSTS = [    
-    'morrisunlock-production.up.railway.app', 
+ALLOWED_HOSTS = [
+    'morrisunlock-production.up.railway.app',  # My Railway domain
+    '.railway.app',  # Wildcard for all Railway subdomains (recommended)
     'localhost',
-    '127.0.0.1',]
+    '127.0.0.1',
+]
 # ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
