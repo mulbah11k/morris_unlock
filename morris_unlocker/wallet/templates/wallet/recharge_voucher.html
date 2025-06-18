@@ -1,0 +1,26 @@
+{% extends 'base_user.html' %}
+{% load static %}
+{% block content %}
+<div class="p-4 md:p-8 bg-gray-900 min-h-screen text-white">
+    <h1 class="text-3xl font-bold mb-6">Recharge Voucher</h1>
+
+    <div class="bg-gray-800 p-8 rounded-2xl shadow-lg max-w-2xl mx-auto">
+        <form method="post" action="">
+            {% csrf_token %}
+            <div class="mb-6">
+                <label for="voucher_code" class="block text-lg font-semibold mb-2">Enter Voucher Code</label>
+                <input type="text" id="voucher_code" name="voucher_code" placeholder="e.g. 8X2L-PQ9R-T7NS" class="w-full p-4 rounded-xl bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-600">
+            </div>
+            <button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-500 text-white text-lg font-semibold py-4 rounded-xl">Redeem Voucher</button>
+        </form>
+
+        <div class="mt-8">
+            <h2 class="text-2xl font-bold mb-4">Recent Recharges</h2>
+            <ul class="space-y-4 text-sm">
+                <li class="border-b border-gray-700 pb-2">2025-06-15 - Voucher <span class="font-mono">8X2L-PQ9R-T7NS</span> - <span class="text-green-400">$10.00 added</span></li>
+                <!-- Add more records or loop through recent recharges -->
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}

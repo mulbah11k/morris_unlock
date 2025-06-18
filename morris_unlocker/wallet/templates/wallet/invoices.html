@@ -1,0 +1,35 @@
+{% extends 'base_user.html' %}
+{% load static %}
+{% block content %}
+<div class="p-4 md:p-8 bg-gray-900 min-h-screen text-white">
+    <h1 class="text-3xl font-bold mb-6">My Invoices</h1>
+
+    <div class="overflow-x-auto bg-gray-800 p-8 rounded-2xl shadow-lg">
+        <table class="w-full text-left">
+            <thead>
+                <tr class="text-gray-400 text-sm border-b border-gray-700">
+                    <th class="pb-3">Invoice ID</th>
+                    <th class="pb-3">Date</th>
+                    <th class="pb-3">Description</th>
+                    <th class="pb-3">Amount</th>
+                    <th class="pb-3">Status</th>
+                    <th class="pb-3">Action</th>
+                </tr>
+            </thead>
+            <tbody class="text-sm">
+                <tr class="border-b border-gray-700">
+                    <td class="py-3">INV-00123</td>
+                    <td class="py-3">2025-06-15</td>
+                    <td class="py-3">Samsung FRP Unlock</td>
+                    <td class="py-3">$10.00</td>
+                    <td class="py-3 text-yellow-400">Pending</td>
+                    <td class="py-3">
+                        <a href="#" class="bg-indigo-600 hover:bg-indigo-500 text-white px-4 py-2 rounded-xl text-sm">Pay Now</a>
+                    </td>
+                </tr>
+                <!-- Add more sample rows or loop through invoice data -->
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
