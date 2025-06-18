@@ -1,4 +1,121 @@
+
 {% extends 'base_user.html' %}
+{% load static %}
+{% block content %}
+<div class="p-4 md:p-8 bg-gray-900 min-h-screen text-white">
+    <h1 class="text-3xl font-bold mb-6">Wallet Dashboard</h1>
+
+    <div class="grid grid-cols-1 xl:grid-cols-4 gap-6">
+        <!-- Your Current Balance -->
+        <div class="col-span-1 xl:col-span-2 bg-gray-800 p-8 rounded-2xl shadow-lg">
+            <p class="text-lg font-semibold mb-2">Your Current Balance</p>
+            <div class="flex items-center justify-between">
+                <p class="text-5xl font-bold text-white">$0 <span class="text-xl">USD</span></p>
+                <a href="#" class="bg-indigo-600 hover:bg-indigo-500 px-6 py-3 text-lg font-semibold rounded-xl">Buy Credit</a>
+            </div>
+        </div>
+
+        <!-- Unpaid Balance -->
+        <div class="col-span-1 bg-gray-800 p-8 rounded-2xl shadow-lg">
+            <p class="text-lg font-semibold mb-2">Unpaid Balance</p>
+            <p class="text-5xl font-bold text-red-400">$0 <span class="text-xl">USD</span></p>
+        </div>
+
+        <!-- Connect Telegram -->
+        <div class="col-span-1 bg-blue-600 p-8 rounded-2xl shadow-lg flex items-center justify-center text-center">
+            <div>
+                <i class="fas fa-paper-plane text-4xl mb-2"></i>
+                <p class="text-2xl font-bold">Connect Telegram</p>
+            </div>
+        </div>
+
+        <!-- Announcements -->
+        <div class="col-span-1 xl:col-span-4 bg-gray-800 p-8 rounded-2xl shadow-lg">
+            <h2 class="text-2xl font-bold mb-4">Announcements</h2>
+            <div class="space-y-4 max-h-64 overflow-y-auto">
+                <div class="border-b border-gray-700 pb-2">
+                    <p class="text-lg">Tecno/Itel/Infinix MDM Unlock : 5 USD</p>
+                    <p class="text-sm text-gray-400">2025-06-14</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Stats Row -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
+        <div class="bg-gray-800 p-8 rounded-2xl shadow-lg text-center">
+            <p class="text-5xl font-bold text-white">$0 <span class="text-xl">USD</span></p>
+            <p class="text-lg">Total Receipts</p>
+        </div>
+        <div class="bg-gray-800 p-8 rounded-2xl shadow-lg text-center">
+            <p class="text-5xl font-bold text-white">$0 <span class="text-xl">USD</span></p>
+            <p class="text-lg">Locked Amount</p>
+        </div>
+        <div class="bg-gray-800 p-8 rounded-2xl shadow-lg text-center">
+            <p class="text-5xl font-bold text-white">0</p>
+            <p class="text-lg">Other Stat</p>
+        </div>
+    </div>
+
+    <!-- Orders Summary -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
+        <div class="bg-gray-800 p-8 rounded-2xl shadow-lg text-center text-green-400">
+            <p class="text-4xl font-bold">0 / 0</p>
+            <p class="text-lg">Orders processed successfully</p>
+        </div>
+        <div class="bg-gray-800 p-8 rounded-2xl shadow-lg text-center text-blue-400">
+            <p class="text-4xl font-bold">0 / 0</p>
+            <p class="text-lg">Orders in process</p>
+        </div>
+        <div class="bg-gray-800 p-8 rounded-2xl shadow-lg text-center text-red-400">
+            <p class="text-4xl font-bold">0 / 0</p>
+            <p class="text-lg">Orders failed</p>
+        </div>
+    </div>
+
+    <!-- Quick Actions -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-10">
+        <a href="#" class="bg-indigo-600 hover:bg-indigo-500 text-center p-6 rounded-2xl shadow-lg">
+            <p class="text-xl font-bold">Credit Transfer</p>
+        </a>
+        <a href="{% url 'invoices' %}" class="bg-teal-600 hover:bg-teal-500 text-center p-6 rounded-2xl shadow-lg">
+            <p class="text-xl font-bold">My Invoices</p>
+        </a>
+        <a href="{% url 'r_voucher' %}" class="bg-pink-600 hover:bg-pink-500 text-center p-6 rounded-2xl shadow-lg">
+            <p class="text-xl font-bold">Recharge Voucher</p>
+        </a>
+        <a href="{% url 'my_statement' %}" class="bg-yellow-600 hover:bg-yellow-500 text-center p-6 rounded-2xl shadow-lg">
+            <p class="text-xl font-bold">My Statement</p>
+        </a>
+    </div>
+
+    <!-- Recent Transactions -->
+    <div class="mt-10 bg-gray-800 p-8 rounded-2xl shadow-lg">
+        <h2 class="text-2xl font-bold mb-4">Recent Transactions</h2>
+        <table class="w-full text-left">
+            <thead>
+                <tr class="text-gray-400 text-sm border-b border-gray-700">
+                    <th class="pb-2">Date</th>
+                    <th class="pb-2">Description</th>
+                    <th class="pb-2">Amount</th>
+                    <th class="pb-2">Status</th>
+                </tr>
+            </thead>
+            <tbody class="text-sm">
+                <tr class="border-b border-gray-700">
+                    <td class="py-2">2025-06-15</td>
+                    <td class="py-2">Order Payment</td>
+                    <td class="py-2">- $5.00</td>
+                    <td class="py-2 text-red-400">Failed</td>
+                </tr>
+                <!-- Add more sample rows or loop data -->
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
+
+{% comment %} {% extends 'base_user.html' %}
 
 {% block title %}Dashboard{% endblock %}
 
@@ -8,3 +125,4 @@
 <p class="text-gray-600">This is a test page using Tailwind CSS and your base layout.</p>
 
 {% endblock %}
+ {% endcomment %}

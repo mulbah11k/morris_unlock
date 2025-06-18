@@ -1,4 +1,20 @@
 {% extends "base.html" %}
+{% block title %}Login{% endblock %}
+{% block content %}
+<div class="max-w-md mx-auto bg-white p-6 rounded shadow">
+  <h2 class="text-xl font-bold mb-4">Login</h2>
+  <form method="POST" class="space-y-4">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="w-full bg-indigo-600 text-white py-2 rounded hover:bg-indigo-700">
+      Login
+    </button>
+    <button class="btn btn-primary">Click me</button>
+  </form>
+</div>
+{% endblock %} 
+
+{% comment %} {% extends "base.html" %}
 {% load static %} {# Make sure 'static' is loaded to use {% static %} tags #}
 
 {% block title %}Login{% endblock %}
@@ -94,10 +110,6 @@
         </div>
     </div>
 </div>
-
-{# IMPORTANT: Place this style block in your main compiled CSS file (e.g., style.css)
-   or directly in your base.html <head> section. Do NOT leave it inline here for production.
-   Ensure paths are correct relative to your CSS file. #}
 <style>
     .background-image-container {
         background-image: url('{% static "images/desktop-background.jpg" %}'); /* Use your actual image path */
@@ -113,26 +125,8 @@
         }
     }
 </style>
-{% endblock content %}
+{% endblock content %} {% endcomment %}
 
 
-
-
-
-{% comment %} {% extends "base.html" %}
-{% block title %}Login{% endblock %}
-{% block content %}
-<div class="max-w-md mx-auto bg-white p-6 rounded shadow">
-  <h2 class="text-xl font-bold mb-4">Login</h2>
-  <form method="POST" class="space-y-4">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit" class="w-full bg-indigo-600 text-white py-2 rounded hover:bg-indigo-700">
-      Login
-    </button>
-    <button class="btn btn-primary">Click me</button>
-  </form>
-</div>
-{% endblock %} {% endcomment %}
 
 
