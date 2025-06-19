@@ -12,10 +12,8 @@ DJANGO_SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
 ENVIRONMENT = os.environ.get('ENVIRONMENT', default='production')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-if ENVIRONMENT == 'development':
-    DEBUG = True
-else:
-    DEBUG = False
+DEBUG = False
+
 
 ALLOWED_HOSTS = [
     'morrisunlock-production.up.railway.app',  # My Railway domain
@@ -23,7 +21,7 @@ ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
 ]
-CSRF_TRUSTED_ORIGINS = ['https://morrisunlock-production.up.railway.app']
+CSRF_TRUSTED_ORIGINS = ['https://morrisunlock-production.up.railway.app/']
 # ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
