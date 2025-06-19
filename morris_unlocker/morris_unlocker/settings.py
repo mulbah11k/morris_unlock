@@ -12,7 +12,7 @@ DJANGO_SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
 ENVIRONMENT = os.environ.get('ENVIRONMENT', default='production')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 
 ALLOWED_HOSTS = [
@@ -42,8 +42,8 @@ INSTALLED_APPS = [
     'whitenoise.runserver_nostatic',
 ]
 
-if DEBUG:
-    INSTALLED_APPS.append('django_browser_reload')
+# if DEBUG:
+#     INSTALLED_APPS.append('django_browser_reload')
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
