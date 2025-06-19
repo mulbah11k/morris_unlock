@@ -2,16 +2,14 @@ from pathlib import Path
 import os
 import dj_database_url
 from urllib.parse import urlparse
-from environ import Env
 import psycopg2
-env = Env()
-Env.read_env()
+
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 
-SECRET_KEY = env('DJANGO_SECRET_KEY')
-ENVIRONMENT = env('ENVIRONMENT', default='production')
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
+ENVIRONMENT = os.environ.get('ENVIRONMENT', default='production')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 if ENVIRONMENT == 'development':
