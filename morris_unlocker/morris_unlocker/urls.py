@@ -23,7 +23,8 @@ def home(request):
     return render(request, "index.html")
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin/', include('admin_honeypot.urls', namespace='admin_honeypot')),
+    path('a_morris/', admin.site.urls),
     path('accounts/', include('accounts.urls')),
     path('wallet/', include('wallet.urls')),
     path('__reload__/', include('django_browser_reload.urls')),

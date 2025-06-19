@@ -1,12 +1,23 @@
 from pathlib import Path
 import os
 import dj_database_url
+from urllib.parse import urlparse
+from environ import Env
+import psycopg2
+env = Env()
+Env.read_env()
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
-DEBUG = 'False'
 
-SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'your-fallback-secret')
+SECRET_KEY = env('DJANGO_SECRET_KEY')
+ENVIRONMENT = env('ENVIRONMENT', default='production')
+
+# SECURITY WARNING: don't run with debug turned on in production!
+if ENVIRONMENT == 'development':
+    DEBUG = True
+else:
+    DEBUG = False
 
 ALLOWED_HOSTS = [
     'morrisunlock-production.up.railway.app',  # My Railway domain
@@ -14,6 +25,7 @@ ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
 ]
+CSRF_TRUSTED_ORIGINS = ['https://morrisunlock-production.up.railway.app']
 # ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
@@ -27,6 +39,7 @@ INSTALLED_APPS = [
     'services',
     'orders',
     'wallet',
+    'admin_honeypot',
     'theme',
     'tailwind',
     'adminpanel',
@@ -47,8 +60,8 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-# if DEBUG:
-#     MIDDLEWARE.append("django_browser_reload.middleware.BrowserReloadMiddleware")
+if DEBUG:
+    MIDDLEWARE.append("django_browser_reload.middleware.BrowserReloadMiddleware")
 
 TAILWIND_APP_NAME = 'theme'
 
@@ -70,10 +83,19 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'morris_unlocker.wsgi.application'
+# DATABASES = {
+#     'default': dj_database_url.config(default=f'sqlite:///{BASE_DIR / "db.sqlite3"}')
+# }
 DATABASES = {
-    'default': dj_database_url.config(default=f'sqlite:///{BASE_DIR / "db.sqlite3"}')
+"default": {
+"ENGINE": "django.db.backends.postgresql_psycopg2",
+"NAME": os.environ.get("PGDATABASE"),
+"USER": os.environ.get("PGUSER"),
+"PASSWORD": os.environ.get("PGPASSWORD"),
+"HOST": os.environ.get("PGHOST"),
+"PORT": os.environ.get("PORT"),
 }
-
+}
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
