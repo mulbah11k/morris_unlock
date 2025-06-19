@@ -8,7 +8,7 @@ import psycopg2
 BASE_DIR = Path(__file__).resolve().parent.parent
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 
-SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
+DJANGO_SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
 ENVIRONMENT = os.environ.get('ENVIRONMENT', default='production')
 
 # SECURITY WARNING: don't run with debug turned on in production!
