@@ -93,6 +93,7 @@ WSGI_APPLICATION = 'morris_unlocker.wsgi.application'
 # "HOST": os.environ.get("PGHOST"),
 # "PORT": os.environ.get("PORT"),
 # }
+
 DATABASES = {
     'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))
 }
